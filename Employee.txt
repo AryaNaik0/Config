@@ -1,0 +1,67 @@
+
+public class Employee {
+    private int id;
+    private String name;
+    private double salary;
+
+    // Constructor with all attributes
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Constructor with id and name
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+        // Set default salary
+        this.salary = 0.0;
+    }
+
+    // Getter methods
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    // Setter method for salary
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    // Other methods...
+
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Create an employee with id, name, and salary
+		Employee emp1 = new Employee(1, "Arya Naik", 5000.0);
+
+		// Create an employee with id and name (salary will be set to default)
+		Employee emp2 = new Employee(2, "Jane Smith",3000.0);
+
+		// Accessing attributes
+		System.out.println(emp1.getId()); // Output: 1
+		System.out.println(emp1.getName()); // Output: John Doe
+		System.out.println(emp1.getSalary()); 
+		
+		System.out.println(emp2.getId()); 
+		System.out.println(emp2.getName());
+		System.out.println(emp2.getSalary());
+
+		// Setting salary
+		
+
+
+	}
+
+}

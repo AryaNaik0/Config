@@ -1,0 +1,55 @@
+public class DistanceConverter {
+    public static double convertDistance(double distance, String fromUnit, String toUnit) throws IllegalArgumentException {
+        if (distance < 0) {
+            throw new IllegalArgumentException("Distance cannot be negative.");
+        }
+
+        double convertedDistance;
+
+        // Convert fromUnit to meters
+        switch (fromUnit.toLowerCase()) {
+            case "km":
+                convertedDistance = distance * 1000;
+                break;
+            case "miles":
+                convertedDistance = distance * 1609.34;
+                break;
+            case "feet":
+                convertedDistance = distance * 0.3048;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid fromUnit specified.");
+        }
+
+        // Convert meters to toUnit
+        switch (toUnit.toLowerCase()) {
+            case "km":
+                convertedDistance /= 1000;
+                break;
+            case "miles":
+                convertedDistance /= 1609.34;
+                break;
+            case "feet":
+                convertedDistance /= 0.3048;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid toUnit specified.");
+        }
+
+        return convertedDistance;
+    }
+
+    public static void main(String[] args) {
+        try {
+            double distanceInKm = 10.0;
+            String fromUnit = "km";
+            String toUnit = "miles";
+
+            double convertedDistance = convertDistance(distanceInKm, fromUnit, toUnit);
+
+            System.out.println(distanceInKm + " " + fromUnit + " is equal to " + convertedDistance + " " + toUnit);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
